@@ -28,7 +28,7 @@ class AboutUs extends Component{
     };
     render() {
         const {params} = this.props.navigation.state;
-        const renderLeaders = ({ item, index }) => {
+        const renderLeader = ({ item, index }) => {
             return(
                 <ListItem
                     key = {index}
@@ -39,21 +39,43 @@ class AboutUs extends Component{
                 />
             )
         }
-        const{ navigate } = this.props.navigation;
-        return(
-            <ScrollView>
-                <Card title = "Our History">
+        if (this.props.leaders.isLoading) {
+            return(
+                <ScrollView>
                     <History />
-                </Card>
-                <Card title = "Corporate Leadership">
-                    <FlatList
-                        data={this.props.leaders.leaders}
-                        renderItem={renderLeaders}
-                        keyExtractor={item => item.id.toString()}
-                    />
-                </Card>
-            </ScrollView>
-        );
+                    <Card
+                        title='Corporate Leadership'>
+                        <Loading />
+                    </Card>
+                </ScrollView>
+            );
+        }
+        else if (this.props.leaders.errMess) {
+            return(
+                <ScrollView>
+                    <History />
+                    <Card
+                        title='Corporate Leadership'>
+                        <Text>{this.props.leaders.errMess}</Text>
+                    </Card>
+                </ScrollView>
+            );
+        }
+        else {
+            return(
+                <ScrollView>
+                    <History />
+                    <Card
+                        title='Corporate Leadership'>
+                        <FlatList
+                            data={this.props.leaders.leaders}
+                            renderItem={renderLeader}
+                            keyExtractor={item => item.id.toString()}
+                        />
+                    </Card>
+                </ScrollView>
+            );
+        }
     }
 }
 export default connect(mapStateToProps)(AboutUs);
