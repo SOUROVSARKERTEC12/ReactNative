@@ -201,6 +201,14 @@
       "comment": "It's your birthday, we're gonna party!",
       "author": "25 Cent",
       "date": "2011-12-02T17:57:28.556094Z"
+    },
+    {
+      "dishId": 0,
+      "rating": "4",
+      "author": "STA",
+      "comment": "this test is game",
+      "date": "2020-08-31T17:57:25.251Z",
+      "id": 20
     }
   ],
   "promotions": [
@@ -263,6 +271,16 @@
       "message": "afadsfds",
       "date": "2017-12-04T09:41:49.890Z",
       "id": 1
+    },
+    {
+      "firstname": "SOUROV",
+      "lastname": "SARKER",
+      "telnum": "2022020200",
+      "email": "SOURV@gmail.com",
+      "agree": true,
+      "contactType": "Tel.",
+      "message": "Test my feedback.",
+      "id": 2
     }
   ]
 }
