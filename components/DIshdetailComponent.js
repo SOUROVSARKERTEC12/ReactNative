@@ -126,10 +126,17 @@ function RenderDish({
 
 function RenderComments({ comments }) {
     const renderCommentItem = ({ item, index }) => (
-        <View key={index} style={{ margin: 10 }}>
-            <Text style={{ fontSize: 14 }}>{item.comment}</Text>
-            <Text style={{ fontSize: 12 }}>{`${item.rating} Stars`}</Text>
-            <Text style={{ fontSize: 12 }}>{`--${item.author}, ${item.date}`}</Text>
+        <View key={index} style={{margin: 10}}>
+            <Text style={{fontSize: 14}}>{item.comment}</Text>
+            <Rating
+                readonly
+                ratingCount={5}
+                imageSize={15}
+                style={{paddingVertical: 5, flexDirection: 'row', justifyContent: 'flex-start'}}
+                startingValue={item.rating}
+            />
+            <Text style={{fontSize: 12}}>{item.rating} Stars</Text>
+            <Text style={{fontSize: 12}}>{'-- ' + item.author + ', ' + item.date} </Text>
         </View>
     );
 
