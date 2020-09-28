@@ -66,7 +66,7 @@ class Reservation extends Component {
             }
         })
     }
-    
+
     render() {
         let todayDate = new Date().toISOString().split('T')[0];
         return (
